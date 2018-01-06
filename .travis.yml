@@ -1,0 +1,12 @@
+language: cpp
+
+script:   
+- cmake -H. -B_build
+- cmake --build _build
+- mv _build/builder ./sources/
+- ./sources/builder
+- ./sources/builder --config Release
+- ./sources/builder --install
+- ./sources/builder --pack
+- ./sources/builder --install --pack
+- ./sources/builder --config Release
